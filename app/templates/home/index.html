@@ -1,0 +1,73 @@
+{% load static %}
+{% static "" as img %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="{% static 'style.css' %}" />
+        <title>Stone Paper Scissor</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js" integrity="sha512-bztGAvCE/3+a1Oh0gUro7BHukf6v7zpzrAb3ReWAVrt+bVNNphcl2tDTKCBr5zk7iEDmQ2Bv401fX3jeVXGIcA==" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <header>
+            <h2 class="text-center mt-3">Stone Paper Scissor</h2>
+        </header>
+        <section>
+            <div class="container">
+                <form action="{% url 'quite' %}" method="post">{% csrf_token %}
+                        <button id="button__stone" class="btn btn-primary ml-auto float-right">Quit</button>
+                        <input type="text" name="plyr" style="display:none;" value="{{ ply }}">
+                        <input type="text" name="com" style="display:none;" value="{{ com }}">
+                </form>
+                <div class="row p-5 ">
+                    <div class="card p-5 players__div bg-dark text-white">
+                        <span id="name" class="text-center text-primary font-weight-bold">Player</span>
+                        <span id="player__score" class="text-center text-primary font-weight-bold">{{ ply }}</span>
+                        
+                    </div>
+                    <div class="card ml-auto p-5 players__div bg-dark text-white">
+                        <span id="pc__Idspan" class="text-center text-primary font-weight-bold">PC</span>
+                        <span id="pc__score" class="text-center text-primary font-weight-bold">{{ com }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="container">
+                <div class="row">
+                    <h4 class="ml-auto mr-auto" style="text-decoration: underline;">Choose Option</h4>
+                </div>
+                    <form action="{% url 'game' %}" method="post">{% csrf_token %}
+                    <div class="row mt-4">
+                        <input type="Submit" name="element" value="stone" class="btn btn-primary ml-auto btnPlayInput">
+                        <span style="width: 6rem;"></span>
+                        <input type="Submit" name="element" value="paper" class="btn btn-primary mr-auto btnPlayInput">
+                    </div>
+                    <div class="row mt-3">
+                        <input type="Submit" name="element" value="scissor" class="btn btn-primary ml-auto mr-auto btnPlayInput">
+                    </div>
+                    </form><br>
+                    <p class="text-left font-weight-bold">{{ result }}</p>
+                    <p class="text-left font-weight-bold">Computer chooses {{ pc }}</p>
+                    <p class="text-left font-weight-bold">You chooses {{ val }}</p>
+            </div>
+        </section>
+    </body>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"
+    ></script>
+    <script
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"
+        integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf"
+        crossorigin="anonymous"
+    ></script>
+</html>
