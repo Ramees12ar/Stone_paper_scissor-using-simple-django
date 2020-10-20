@@ -2,12 +2,7 @@
 Django==3.0
 httplib2==0.14.0
 oauthlib==3.1.0
-python-apt==2.0.0+ubuntu0.20.4.1
-python-dateutil==2.7.3
-python-debian===0.1.36ubuntu1
-reportlab==3.5.34
 requests==2.22.0
 requests-unixsocket==0.2.0
 sqlparse==0.4.1
-systemd-python==234
 urllib3==1.25.8
